@@ -1,0 +1,44 @@
+.Tasks-list {
+    padding: 0.5rem;
+    background: #282c34;
+    border-radius: 15px;
+}
+
+.Tasks-list-header {
+    background: #ffffff;
+    border-radius: 10px 10px 0 0;
+}
+
+.Status {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 0.7rem;
+    padding: 0.5rem;
+}
+
+.Tasks-container {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    gap: 0.5rem;
+}
+
+.Task {
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    border-radius: 8px;
+}
+
+.Task-info {
+    text-align: start;
+    width: 100%;
+}
+
+.Delete-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }

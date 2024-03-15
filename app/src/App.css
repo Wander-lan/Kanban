@@ -1,0 +1,159 @@
+body, html {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.App {
+  text-align: center;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 0;
+  height: 100vh;
+}
+
+.App-header {
+  margin-bottom: 1rem;
+}
+
+.Title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  background-color: #282c34;
+}
+
+.App-body {
+  position: relative;
+  display: grid;
+  overflow: auto;
+  gap: 1rem;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.Success-popup-container {
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.Success-popup {
+  max-width: 12rem;
+  padding: 0.5rem;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.Filter-container {
+  margin: auto auto;
+}
+
+.Filter-input {
+  width: fit-content;
+  margin: 0 auto; 
+  display: flex;
+  column-gap: 0.5rem;
+  font-weight: 600;
+}
+
+.Tasks-lists-container {
+  display: grid;
+  grid-template-columns: 18rem 18rem 18rem;
+  overflow: auto;
+  gap: 0.5rem;
+}
+
+.Button-container {
+  padding-bottom: 1rem;
+  margin: auto;
+  display: inline-flex;
+  gap: 0.5rem;
+}
+
+.Register-btn {
+  font-size: 1rem;
+  color: white;
+  font-weight: 600;
+  background: #1f1f1f;
+  border: none;
+  padding: 0.4rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.ReactModal__Content {
+  border-radius: 2rem !important;
+}
+
+.Modal-container {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto auto;
+}
+
+.Modal-header {
+  margin-left: auto;
+  margin-bottom: 0.5rem;
+}
+
+.Modal-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 1rem;
+  margin: 0 0.5rem 1rem;
+  overflow: auto;
+}
+
+.Modal-footer {
+  margin: auto;
+}
+
+.Input-container {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+}
+
+.Close-modal-btn {
+  font-size: 1rem;
+  color: white;
+  font-weight: 600;
+  background: #1f1f1f;
+  border: none;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.Even {
+  background-color: white;
+}
+
+.Odd {
+  background-color: lightgray;
+}
+
+/* Media query para telas média */
+@media screen and (min-width: 600px) {
+  .ReactModal__Content {
+    width: fit-content; 
+  }
+
+  .Filter-input {
+    margin: 0; 
+  }
+}
+
+/* Media query para telas grandes (por exemplo, largura mínima de 1200 pixels) */
+@media screen and (min-width: 1200px) {
+  .ReactModal__Content {
+    width: 300px; 
+  }
+}
