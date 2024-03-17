@@ -64,8 +64,10 @@ body, html {
 .Tasks-lists-container {
   display: grid;
   grid-template-columns: 18rem 18rem 18rem;
+  grid-template-rows: 22rem;
   overflow: auto;
   gap: 0.5rem;
+  padding: 0 1rem;
 }
 
 .Button-container {
@@ -130,6 +132,7 @@ body, html {
   padding: 0.25rem 0.5rem;
   border-radius: 0.5rem;
   cursor: pointer;
+  margin-left: auto;
 }
 
 .Even {
@@ -143,7 +146,7 @@ body, html {
 /* Media query para telas média */
 @media screen and (min-width: 600px) {
   .ReactModal__Content {
-    width: fit-content; 
+    width: 18.75rem;
   }
 
   .Filter-input {
@@ -151,9 +154,9 @@ body, html {
   }
 }
 
-/* Media query para telas grandes (por exemplo, largura mínima de 1200 pixels) */
-@media screen and (min-width: 1200px) {
-  .ReactModal__Content {
-    width: 300px; 
+/* Media query para telas grandes */
+@media screen and (min-width: 1024px) {
+  .Tasks-lists-container {
+    justify-content: center;
   }
 }

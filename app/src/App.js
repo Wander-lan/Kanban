@@ -99,6 +99,12 @@ function App() {
     );
   };
 
+  const handleTitleChange = (event) => {
+    let title = event.target.value;
+    title = title.slice(0,100);
+    setTaskName(title);
+  }
+
   const handleDescChange = (event) => {
     let description = event.target.value;
     description = description.slice(0,500);
@@ -195,7 +201,7 @@ function App() {
           <div className='Modal-content'>
             <div className='Input-container'>
               <label>Título:</label>
-              <input type="text" value={taskName} onChange={(e) => setTaskName(e.target.value)} />
+              <input type="text" value={taskName} onChange={handleTitleChange} />
             </div>
             <div className='Input-container'>
               <label>Descrição:</label>

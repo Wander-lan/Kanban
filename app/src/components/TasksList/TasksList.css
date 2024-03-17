@@ -2,6 +2,9 @@
     padding: 0.5rem;
     background: #282c34;
     border-radius: 15px;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 0.5rem;
 }
 
 .Tasks-list-header {
@@ -9,18 +12,18 @@
     border-radius: 10px 10px 0 0;
 }
 
-.Status {
+.Tasks-list-title {
     font-size: 1.5rem;
     font-weight: 700;
     margin-top: 0;
-    margin-bottom: 0.7rem;
+    margin-bottom: 0.2rem;
     padding: 0.5rem;
 }
 
 .Tasks-container {
     display: flex;
     flex-direction: column;
-    overflow-y: auto;
+    overflow: auto;
     gap: 0.5rem;
 }
 
@@ -30,15 +33,35 @@
     justify-content: space-between;
     gap: 1rem;
     border-radius: 8px;
+    cursor: pointer;
+    text-align: start;
+    font-size: 1.2rem;
+    font-weight: 700;
 }
 
-.Task-info {
-    text-align: start;
-    width: 100%;
+.Status-container {
+    display: flex;
+}
+
+.Status-selector {
+    font-size: 0.75rem;
+    margin-left: auto;
 }
 
 .Delete-btn {
     background: none;
     border: none;
     cursor: pointer;
-  }
+}
+
+.Modal-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Task-title-container {
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
