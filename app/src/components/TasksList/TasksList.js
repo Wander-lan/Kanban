@@ -49,18 +49,18 @@ function TaskList({ tasks, statusHeader, onDeleteTask, onUpdateStatus }) {
                 contentLabel="Cadastrar Nova Tarefa"
                 ariaHideApp={false}
                 style={{
-                overlay: {
-                    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-                },
-                content: {
-                    height: 'fit-content',
-                    maxHeight: '28rem',
-                    margin: 'auto',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                },
+                    overlay: {
+                        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                    },
+                    content: {
+                        height: 'fit-content',
+                        maxHeight: '28rem',
+                        margin: 'auto',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                    },
                 }}
             >
                 <div className='Modal-container'>

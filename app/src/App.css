@@ -109,8 +109,8 @@ body, html {
   flex-direction: column;
   justify-content: center;
   row-gap: 1rem;
-  margin: 0 0.5rem 1rem;
   overflow: auto;
+  margin-bottom: 1rem;
 }
 
 .Modal-footer {
@@ -145,10 +145,6 @@ body, html {
 
 /* Media query para telas média */
 @media screen and (min-width: 600px) {
-  .ReactModal__Content {
-    width: 18.75rem;
-  }
-
   .Filter-input {
     margin: 0; 
   }
@@ -156,6 +152,10 @@ body, html {
 
 /* Media query para telas grandes */
 @media screen and (min-width: 1024px) {
+  .ReactModal__Content {
+    width: 30rem;
+  }
+
   .Tasks-lists-container {
     justify-content: center;
   }
