@@ -35,7 +35,7 @@ function TaskList({ tasks, statusHeader, onDeleteTask, onUpdateStatus }) {
                 {tasks.map((task, index) => (
                     <div
                         key={task.id}
-                        className={`Task ${index % 2 === 0 ? 'Even' : 'Odd'}`}
+                        className={`Task ${index % 2 === 0 ? 'Even' : 'Odd'} ${task.status === "done" ? 'Done' : '' } `}
                         onClick={() => onOpenTask(task.id, task.status, task.name, task.description)}
                     >
                         {task.name}
