@@ -179,14 +179,12 @@ function App() {
       </div>
 
       <div className='App-body'>
-      
-
-        {<div className='Filter-container'>
+        <div className='Filter-container'>
           <div className='Filter-input'>
             <label>Filtrar por:</label>
             <input type="text" value={filtro} onChange={(e) => setFilter(e.target.value)} />
           </div>
-        </div>}
+        </div>
       
         {isLoading ? (
           <p>Carregando...</p>

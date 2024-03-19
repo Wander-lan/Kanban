@@ -87,7 +87,7 @@ function TaskList({
                         <button className='Close-modal-btn' onClick={closeModal}>X</button>
                     </div>
                     <div className='Modal-content'>
-                        {isTitleEditing &&
+                        {isTitleEditing ? (
                             <input
                                 className="Title-input"
                                 type="text"
@@ -98,14 +98,13 @@ function TaskList({
                                     setIsTitleEditing(false);
                                 }}
                             />
-                        }
-                        {!isTitleEditing &&
+                        ):(
                             <div className='Task-title-container' onClick={(e) => setIsTitleEditing(true)}>
                                 {taskName}
                             </div>
-                        }
-
-                        {isDescEditing &&
+                        )}
+                        
+                        {isDescEditing ? (
                             <input
                                 className="Description-input"
                                 type="text"
@@ -116,12 +115,11 @@ function TaskList({
                                     setIsDescEditing(false);
                                 }}
                             />
-                        }
-                        {!isDescEditing &&
+                        ):(
                             <div className='Task-description-container' onClick={(e) => setIsDescEditing(true)}>
-                                {taskDescription}
+                                {taskDescription ? (<>{taskDescription}</>):(<>Adicione uma descrição...</>)}
                             </div>
-                        }
+                        )}
                     </div>
                     <div className='Modal-footer'>
                         <button className='Delete-btn' onClick={() => onDeleteTask(taskId)}>
