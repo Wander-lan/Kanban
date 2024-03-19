@@ -52,7 +52,6 @@ function App() {
         showSuccessPopup();
       })
       .catch(error => {
-        console.log("Deu pau aqui")
         console.error(error)
       });
   };
@@ -69,6 +68,7 @@ function App() {
     }
   };
 
+  // Envia uma requisição para atualizar o status de uma task com base em seu ID
   const updateTaskStatus = (taskId, newStatus) => {
     axios.put(`http://localhost:3001/tasks/${taskId}/status`, {
       status: newStatus,
@@ -91,9 +91,53 @@ function App() {
     .catch(error => console.error(error));
   };
 
+  // Envia uma requisição para alterar o título de uma task com base em seu ID
+  const updateTaskTitle = (taskId, newTitle) => {
+    axios.put(`http://localhost:3001/tasks/${taskId}/name`, {
+      name: newTitle,
+    })
+    .then(response => {
+      // Atualiza o estado das tarefas após a atualização do título
+      const updatedTask = response.data;
+      const updatedTasks = tasks.map(task => {
+        if (task.id === updatedTask.id) {
+          return { ...task, name: updatedTask.name };
+        }
+        return task;
+      });
+      setTasks(updatedTasks);
+    })
+    .catch(error => console.error(error));
+  };
+
+  // Envia uma requisição para alterar a descrição de uma task com base em seu ID
+  const updateTaskDescription = (taskId, newDescription) => {
+    axios.put(`http://localhost:3001/tasks/${taskId}/description`, {
+      description: newDescription,
+    })
+    .then(response => {
+      // Atualiza o estado das tarefas após a atualização da descrição
+      const updatedTask = response.data;
+      const updatedTasks = tasks.map(task => {
+        if (task.id === updatedTask.id) {
+          return { ...task, description: updatedTask.description };
+        }
+        return task;
+      });
+      setTasks(updatedTasks);
+    })
+    .catch(error => console.error(error));
+  };
+
+  const sortTasksById = (tasksList) => {
+    return tasksList.sort((a, b) => a.id - b.id);
+  };
+
   // Filtra a lista de tasks para exibir somente as desejadas
   const filterTasks = (tasksList) => {
-    return tasksList.filter(task => 
+    const orderedTasksList = sortTasksById(tasksList);
+
+    return orderedTasksList.filter(task => 
       task.name.toLowerCase().includes(filtro.toLowerCase()) ||
       task.description.toLowerCase().includes(filtro.toLowerCase())
     );
@@ -153,18 +197,24 @@ function App() {
               statusHeader={"Pendente"}
               onDeleteTask={deleteTask}
               onUpdateStatus={updateTaskStatus}
+              onUpdateTaskTitle={updateTaskTitle}
+              onUpdateTaskDescription={updateTaskDescription}
             />
             <TasksList
               tasks={filterTasks(tasks.filter(task => task.status === "doing"))}
               statusHeader={"Em progresso"}
               onDeleteTask={deleteTask}
               onUpdateStatus={updateTaskStatus}
+              onUpdateTaskTitle={updateTaskTitle}
+              onUpdateTaskDescription={updateTaskDescription}
             />
             <TasksList
               tasks={filterTasks(tasks.filter(task => task.status === "done"))}
               statusHeader={"Concluído"}
               onDeleteTask={deleteTask}
               onUpdateStatus={updateTaskStatus}
+              onUpdateTaskTitle={updateTaskTitle}
+              onUpdateTaskDescription={updateTaskDescription}
             />
           </div>
         )}

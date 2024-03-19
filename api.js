@@ -76,6 +76,55 @@ app.put('/tasks/:id/status', async (req, res) => {
     }
 });
 
+// Rota para atualizar o nome de uma tarefa
+app.put('/tasks/:id/name', async (req, res) => {
+    const taskId = req.params.id;
+    const { name } = req.body;
+
+    // Verifica se o nome está vazio
+    if (!name) {
+        return res.status(400).json({ error: 'É obrigatório preencher o nome da task.' });
+    }
+
+    try {
+        const result = await pool.query(
+            'UPDATE tasks SET name = $1 WHERE id = $2 RETURNING *',
+            [name, taskId]
+        );
+
+        if (result.rows.length === 0) {
+            return res.status(404).json({ error: 'Task não encontrada.' });
+        }
+
+        res.json(result.rows[0]);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Erro ao atualizar nome da task.' });
+    }
+});
+
+// Rota para atualizar a descrição de uma tarefa
+app.put('/tasks/:id/description', async (req, res) => {
+    const taskId = req.params.id;
+    const { description } = req.body;
+
+    try {
+        const result = await pool.query(
+            'UPDATE tasks SET description = $1 WHERE id = $2 RETURNING *',
+            [description, taskId]
+        );
+
+        if (result.rows.length === 0) {
+            return res.status(404).json({ error: 'Task não encontrada.' });
+        }
+
+        res.json(result.rows[0]);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Erro ao atualizar descrição da task.' });
+    }
+});
+
 // Rota para deletar uma tarefa do banco pelo ID
 app.delete('/tasks/:id', async (req, res) => {
     const taskId = req.params.id;

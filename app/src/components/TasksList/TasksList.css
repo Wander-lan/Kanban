@@ -71,3 +71,12 @@
     font-size: 1.2rem;
     font-weight: 700;
 }
+
+.Title-input {
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border: none;
+    width: 100%;
+    padding: 0;
+}

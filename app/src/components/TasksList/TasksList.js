@@ -1,10 +1,19 @@
 import './TasksList.css';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import DeleteIcon from '../../img/icons-delete.svg';
 import Modal from 'react-modal';
 
-function TaskList({ tasks, statusHeader, onDeleteTask, onUpdateStatus }) {
+function TaskList({
+    tasks,
+    statusHeader,
+    onDeleteTask,
+    onUpdateStatus,
+    onUpdateTaskTitle,
+    onUpdateTaskDescription
+}) {
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isTitleEditing, setIsTitleEditing] = useState(false);
+    const [isDescEditing, setIsDescEditing] = useState(false);
     const [taskId, setTaskId] = useState('');
     const [taskStatus, setTaskStatus] = useState('');
     const [taskName, setTaskName] = useState('');
@@ -78,10 +87,41 @@ function TaskList({ tasks, statusHeader, onDeleteTask, onUpdateStatus }) {
                         <button className='Close-modal-btn' onClick={closeModal}>X</button>
                     </div>
                     <div className='Modal-content'>
-                        <div className='Task-title-container'>
-                            {taskName}
-                        </div>
-                        <div>{taskDescription}</div>
+                        {isTitleEditing &&
+                            <input
+                                className="Title-input"
+                                type="text"
+                                value={taskName}
+                                onChange={(e) => setTaskName(e.target.value)}
+                                onBlur={(e) => {
+                                    onUpdateTaskTitle(taskId, taskName);
+                                    setIsTitleEditing(false);
+                                }}
+                            />
+                        }
+                        {!isTitleEditing &&
+                            <div className='Task-title-container' onClick={(e) => setIsTitleEditing(true)}>
+                                {taskName}
+                            </div>
+                        }
+
+                        {isDescEditing &&
+                            <input
+                                className="Description-input"
+                                type="text"
+                                value={taskDescription}
+                                onChange={(e) => setTaskDescription(e.target.value)}
+                                onBlur={(e) => {
+                                    onUpdateTaskDescription(taskId, taskDescription);
+                                    setIsDescEditing(false);
+                                }}
+                            />
+                        }
+                        {!isDescEditing &&
+                            <div className='Task-description-container' onClick={(e) => setIsDescEditing(true)}>
+                                {taskDescription}
+                            </div>
+                        }
                     </div>
                     <div className='Modal-footer'>
                         <button className='Delete-btn' onClick={() => onDeleteTask(taskId)}>
