@@ -58,7 +58,7 @@ function Kanban () {
         // Confirmação antes de deletar
         if (window.confirm('Deseja realmente deletar esta task?')) {
             try {
-                await deleteTask(taskId);
+                await Controllers.deleteTask(taskId);
                 setTasks(tasks.filter(task => task.id !== taskId));
             } catch (error) {
                 console.error(error);

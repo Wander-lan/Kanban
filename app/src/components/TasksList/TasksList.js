@@ -19,6 +19,7 @@ function TaskList ({
             <div className='Tasks-container'>
                 {tasks.map((task, index) => (
                     <TaskItem
+                        key={task.id}
                         className={` ${index % 2 === 0 ? 'Even' : 'Odd'} `}
                         task={task}
                         onDeleteTask={onDeleteTask}
