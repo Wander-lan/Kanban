@@ -1,0 +1,58 @@
+.Task {
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: start;
+    font-size: 1.2rem;
+    font-weight: 700;
+    background-color: white;
+}
+
+.Done {
+    text-decoration: line-through;
+}
+
+.Status-container {
+    display: flex;
+}
+
+.Status-selector {
+    font-size: 0.75rem;
+    margin-left: auto;
+    border: none;
+}
+
+.Delete-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.Modal-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Task-title-container {
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.Title-input {
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border: none;
+    width: 100%;
+    padding: 0;
+}
+
+.Description-input {
+    margin: 0;
+    padding: 0;
+}

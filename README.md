@@ -15,7 +15,7 @@ Se quiser, popule a tabela com dados fictícios com os comandos informados no ar
 
 Para inicializar a API rode o seguinte comando no diretório raíz do projeto:
 ```
-node api.js
+node index.js
 ```
 E para rodar a aplicação rode o seguinte comando no diretório da pasta "app":
 ```
@@ -25,7 +25,7 @@ npm start
 A aplicação irá começar a rodar no endereço: http://localhost:3000/.
 
 ## Informações adicionais sobre o projeto:
-- No diretório raíz do projeto se encontra a parte relativa ao backend (feito em Node.js), no arquivo "api.js".
+- No diretório raíz do projeto se encontra a parte relativa ao backend (feito em Node.js), no arquivo "index.js".
 
 - Na pasta "app" se encontra a parte do frontend (feito em React).
 
