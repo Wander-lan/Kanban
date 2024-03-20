@@ -88,7 +88,7 @@ function TaskItem ({
                                 value={taskName}
                                 onChange={(e) => setTaskName(e.target.value)}
                                 onBlur={(e) => {
-                                    onUpdateTaskTitle(taskId, taskName);
+                                    if (taskName) onUpdateTaskTitle(taskId, taskName);
                                     setIsTitleEditing(false);
                                 }}
                             />
