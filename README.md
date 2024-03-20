@@ -1,8 +1,6 @@
 # Gerenciador de tarefas
 Esta é uma aplicação de gerenciamento de tarefas (Kanban), para usos diversos, que permite adicionar e remover tarefas, assim como alterar as suas informações e seu status.
 
-![Kanban mobile](https://github.com/Wander-lan/Kanban/assets/32098644/b80bed61-b52f-4f68-9644-0be20fcc0671)
-
 ![Kanban desktop](https://github.com/Wander-lan/Kanban/assets/32098644/cbdea9b8-b56a-4ae3-a9ad-06b20c09fdc7)
 
 ## Como executar:
